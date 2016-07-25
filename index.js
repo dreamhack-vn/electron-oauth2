@@ -60,12 +60,10 @@ module.exports = function (config, windowParams) {
       }
 
       authWindow.webContents.on('will-navigate', (event, url) => {
-        if (url.indexOf("spotify") == -1) { return }
         onCallback(url);
       });
 
       authWindow.webContents.on('did-get-redirect-request', (event, oldUrl, newUrl) => {
-        if (url.indexOf("spotify") == -1) { return }
         onCallback(newUrl);
       });
     });
