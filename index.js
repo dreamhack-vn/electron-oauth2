@@ -42,7 +42,7 @@ module.exports = function (config, windowParams) {
       });
 
       function onCallback(url) {
-        if (url.indexOf("spotify") == -1) { return }
+        if (url.indexOf("facebook") != -1) { return }
         var url_parts = nodeUrl.parse(url, true);
         var query = url_parts.query;
         var code = query.code;
