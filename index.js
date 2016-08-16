@@ -40,6 +40,10 @@ module.exports = function (config, windowParams) {
       urlParams.access_type = opts.accessType;
     }
 
+      if (opts.show_dialog) {
+          urlParams.show_dialog = opts.show_dialog;
+      }
+
     var url = config.authorizationUrl + '?' + queryString.stringify(urlParams);
 
     return new Promise(function (resolve, reject) {
@@ -66,7 +70,7 @@ module.exports = function (config, windowParams) {
         } else if (code) {
           resolve(code);
           authWindow.removeAllListeners('closed');
-          authWindow.close();
+          authWindow.hide();
         }
       }
 
